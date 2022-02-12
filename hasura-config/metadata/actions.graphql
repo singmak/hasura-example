@@ -1,0 +1,32 @@
+type Mutation {
+  authenticate(
+    user: AuthenticateParams!
+  ): AuthenticateOutput
+}
+
+type Mutation {
+  register(
+    user: RegisterParams!
+  ): RegisterOutput
+}
+
+input AuthenticateParams {
+  username: String!
+  password: String!
+}
+
+input RegisterParams {
+  username: String!
+  password: String!
+  full_name: String!
+}
+
+type AuthenticateOutput {
+  token: String!
+}
+
+type RegisterOutput {
+  id: String!
+  created_at: String!
+}
+

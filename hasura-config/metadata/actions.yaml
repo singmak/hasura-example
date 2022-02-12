@@ -1,6 +1,24 @@
-actions: []
+actions:
+- name: authenticate
+  definition:
+    kind: synchronous
+    handler: http://host.docker.internal:3000/authenticate
+  permissions:
+  - role: user
+  - role: guest
+- name: register
+  definition:
+    kind: synchronous
+    handler: http://host.docker.internal:3000/register
+  permissions:
+  - role: user
+  - role: guest
 custom_types:
   enums: []
-  input_objects: []
-  objects: []
+  input_objects:
+  - name: AuthenticateParams
+  - name: RegisterParams
+  objects:
+  - name: AuthenticateOutput
+  - name: RegisterOutput
   scalars: []

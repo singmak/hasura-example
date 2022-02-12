@@ -1,6 +1,13 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
+const AUTHENTICATE_USER = `
+mutation auth($user: AuthenticateParams!) {
+  authenticate(user: $user) {
+    token
+  }
+}`;
+
 export function Login() {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = data => console.log(data);
